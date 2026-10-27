@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" fill="none">
+  <!-- Decorative contour lines used behind hero and dark sections -->
+  <path d="M-40 480C240 380 420 560 720 470s520-220 800-160" stroke="#C6B78B" stroke-opacity="0.35"/>
+  <path d="M-40 520C260 420 440 600 740 510s520-220 800-160" stroke="#C6B78B" stroke-opacity="0.22"/>
+  <path d="M-40 560C280 460 460 640 760 550s520-220 800-160" stroke="#DFFF9B" stroke-opacity="0.14"/>
+  <path d="M-40 440C220 340 400 520 700 430s520-220 800-160" stroke="#C6B78B" stroke-opacity="0.12"/>
+</svg>

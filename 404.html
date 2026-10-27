@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Stackly</title>
+  <meta name="description" content="The page you are looking for could not be found.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;1,9..144,400;1,9..144,480&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M4 12h16m0 0l-6-6m6 6l-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 12 12)"/></symbol>
+  </svg>
+
+  <main class="error-page">
+    <svg class="error-deco" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-60 700C300 580 500 780 840 680s560-260 860-200" stroke="#C6B78B" stroke-opacity="0.35" fill="none" style="stroke-dasharray:5 9"/>
+      <path d="M-60 760C320 640 520 840 860 740s560-260 860-200" stroke="#C6B78B" stroke-opacity="0.18" fill="none" style="stroke-dasharray:5 9"/>
+      <path d="M-60 200C300 100 500 280 840 190s560-240 860-180" stroke="#DFFF9B" stroke-opacity="0.1" fill="none" style="stroke-dasharray:5 9"/>
+    </svg>
+
+    <a class="brand" href="index.html" aria-label="Stackly — home" style="position:absolute;top:34px;left:var(--gutter)">
+      <span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span>
+    </a>
+
+    <p class="error-code" aria-hidden="true">4<em>0</em>4</p>
+    <h1>This page has moved — or never existed.</h1>
+    <p>Even the best navigators lose the thread occasionally. Let's get you back to solid ground.</p>
+    <div class="error-actions">
+      <button class="btn btn-ghost" onclick="history.back()" type="button"><svg class="arr" width="15" height="15" aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow-ur"/></svg> Go Back</button>
+      <a class="btn btn-lime" href="index.html">Return Home <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    </div>
+  </main>
+
+  <script src="js/navigation.js"></script>
+</body>
+</html>

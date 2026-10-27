@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investments — Stackly Investment Banking</title>
+  <meta name="description" content="Explore Stackly investment perspectives, disciplined capital allocation, and long-term value creation.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;0,9..144,560;1,9..144,400;1,9..144,480&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Premium additions for the About page */
+    .about-premium{--ap-ink:#10201d;--ap-muted:#66716b;--ap-line:rgba(16,32,29,.15);--ap-paper:#f7f6f0;--ap-lime:#dfff9b}
+    .about-premium *{box-sizing:border-box}
+    .ap-section{padding:clamp(74px,8.5vw,120px) 0;position:relative;overflow:hidden}
+    .ap-kicker{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.16em;font:600 11px/1.4 Inter,sans-serif;color:#78836e;margin:0 0 20px}
+    .ap-kicker:before{content:"";width:27px;height:1px;background:#9aa97b;display:inline-block}
+    .ap-title{font:400 clamp(36px,4.8vw,66px)/1.06 Fraunces,Georgia,serif;letter-spacing:-.04em;margin:0;color:var(--ap-ink)}
+    .ap-title em{font-weight:400;color:#7c8965}
+    .ap-copy{font:400 14px/1.85 Inter,sans-serif;color:var(--ap-muted);margin:18px 0 0;max-width:560px}
+    .ap-outlook{background:var(--ap-paper)}
+    .ap-outlook-head{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-bottom:52px}
+    .ap-outlook-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .ap-outlook-card{background:#fff;border:1px solid rgba(16,32,29,.08);padding:28px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s ease,box-shadow .25s ease}
+    .ap-outlook-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(16,32,29,.07)}
+    .ap-card-mark{width:42px;height:42px;border:1px solid rgba(16,32,29,.16);border-radius:50%;display:grid;place-items:center;color:#788b5e;font:400 18px Fraunces,Georgia,serif}
+    .ap-outlook-card h3{font:400 26px/1.15 Fraunces,Georgia,serif;margin:35px 0 10px;color:var(--ap-ink)}
+    .ap-outlook-card p{font:400 13px/1.8 Inter,sans-serif;color:var(--ap-muted);margin:0}
+    .ap-commitment{background:#e8eddd}
+    .ap-commitment-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,8vw,110px);align-items:start}
+    .ap-commitment-aside{position:sticky;top:100px}
+    .ap-commitment-aside .ap-title{font-size:clamp(36px,4.1vw,58px)}
+    .ap-commitment-list{border-top:1px solid var(--ap-line)}
+    .ap-commitment-item{display:grid;grid-template-columns:58px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--ap-line)}
+    .ap-commitment-item>span{font:500 11px/1.5 Inter,sans-serif;color:#7e8b69;letter-spacing:.12em;padding-top:5px}
+    .ap-commitment-item h3{font:400 25px/1.2 Fraunces,Georgia,serif;margin:0 0 9px;color:var(--ap-ink)}
+    .ap-commitment-item p{font:400 13px/1.8 Inter,sans-serif;margin:0;color:#5e6b62;max-width:540px}
+    .ap-journey{background:#14231f;color:#f4f2ec}
+    .ap-journey:after{content:"";position:absolute;width:470px;height:470px;right:-220px;top:-220px;border:1px solid rgba(223,255,155,.15);border-radius:50%;box-shadow:0 0 0 50px rgba(223,255,155,.025),0 0 0 100px rgba(223,255,155,.02);pointer-events:none}
+    .ap-journey .ap-kicker{color:#c1cbbb}
+    .ap-journey .ap-title{color:#f4f2ec;max-width:750px}
+    .ap-journey .ap-title em{color:var(--ap-lime)}
+    .ap-journey-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:50px}
+    .ap-journey-head .ap-copy{color:#c0cbc2;max-width:360px}
+    .ap-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(244,242,236,.22);position:relative;z-index:1}
+    .ap-milestone{padding:24px 20px 0 0;min-height:185px}
+    .ap-milestone+.ap-milestone{padding-left:20px;border-left:1px solid rgba(244,242,236,.18)}
+    .ap-milestone span{font:500 11px/1.4 Inter,sans-serif;letter-spacing:.12em;color:#c5d39e}
+    .ap-milestone h3{font:400 23px/1.2 Fraunces,Georgia,serif;margin:38px 0 10px;color:#f4f2ec}
+    .ap-milestone p{font:400 12px/1.8 Inter,sans-serif;color:#c0cbc2;margin:0}
+    @media(max-width:800px){
+      .ap-outlook-head{grid-template-columns:1fr;gap:18px}
+      .ap-outlook-grid{grid-template-columns:1fr}
+      .ap-outlook-card{min-height:210px}
+      .ap-commitment-layout{grid-template-columns:1fr;gap:35px}
+      .ap-commitment-aside{position:static}
+      .ap-journey-head{display:block}.ap-journey-head .ap-copy{max-width:560px}
+      .ap-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .ap-milestone{padding:22px 16px 22px 0;min-height:160px;border-bottom:1px solid rgba(244,242,236,.18)}
+      .ap-milestone+.ap-milestone{padding-left:16px}
+      .ap-milestone:nth-child(3){padding-left:0;border-left:0}
+    }
+    @media(max-width:480px){.ap-timeline{grid-template-columns:1fr}.ap-milestone,.ap-milestone+.ap-milestone{padding:20px 0;border-left:0;min-height:auto}.ap-milestone h3{margin-top:22px}}
+    @media(prefers-reduced-motion:reduce){.ap-outlook-card{transition:none}}
+  </style>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V4m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20.5c1.4-3.6 4.2-5.5 7.5-5.5s6.1 1.9 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m5.5 10V4M15 20v-8m5 8V7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M8 12l-4.5-3L8 5.5 12 8l4-2.5L20.5 9 16 12m-8 0l3.5 3.5a2 2 0 002.8 0L16 12m-8 0l-2 2m10-2l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.6-8 9-4.8-1.4-8-4.5-8-9V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Stackly — home">
+        <span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="investment.html">Investments</a>
+        <a href="insight.html">Insights</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-lime" href="login.html">Investor Portal <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span></a>
+      <button class="mobile-menu-close" type="button" aria-label="Close menu"><span></span><span></span></button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home <span class="idx">01</span></a>
+      <a href="about.html">About <span class="idx">02</span></a>
+      <a href="service.html">Services <span class="idx">03</span></a>
+      <a href="investment.html">Investments <span class="idx">04</span></a>
+      <a href="insight.html">Insights <span class="idx">05</span></a>
+      <a href="blog.html">Blog <span class="idx">06</span></a>
+      <a href="contact.html">Contact <span class="idx">07</span></a>
+    </nav>
+    <a class="btn btn-lime mobile-cta" href="login.html">Investor Portal <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    <p class="mobile-meta">Strategic capital · Exceptional opportunities</p>
+  </div>
+
+  <main id="main">
+    <!-- INVESTMENT PAGE HERO -->
+    <section class="page-hero page-hero--matched">
+      <div class="page-hero-media" aria-hidden="true"><img src="img/services/investments.webp" alt="" width="960" height="1200"></div>
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Investments</span></nav>
+        <p class="eyebrow on-dark">Investment Perspective</p>
+        <h1>Capital with purpose. <em class="accent-italic">Value built to last.</em></h1>
+        <p class="lede on-dark">A considered approach to investment opportunities, grounded in strategic perspective, disciplined evaluation, and a long-term view.</p>
+      </div>
+    </section>
+
+    <!-- INVESTMENT PHILOSOPHY -->
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow" data-reveal>Our Philosophy</p>
+          <p class="vision-quote" data-reveal style="margin-top:20px">Strong investments begin with <span class="accent-champagne">better questions.</span></p>
+        </div>
+        <div class="prose" data-reveal>
+          <p>We believe investment decisions should be driven by fundamentals, strategic fit, and a clear understanding of risk. Each opportunity deserves a rigorous review of its context, potential, and long-term implications.</p>
+          <p>Our approach brings together commercial perspective and financial discipline to help clients evaluate opportunities with greater clarity. The aim is not activity for its own sake, but considered decisions aligned with a defined objective.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTMENT FOCUS -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>Investment Focus</p>
+          <h2 data-reveal>Where Strategy Meets <em class="accent-champagne">Opportunity.</em></h2>
+          <p class="lede" data-reveal>Explore the areas where a disciplined investment lens can help frame decisions and uncover potential.</p>
+        </div>
+        <div class="team-grid" data-reveal-group>
+          <article class="value-card">
+            <span class="v-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+            <h3>Growth Capital</h3>
+            <p>Assessing capital needs and growth plans to support the next stage of a business's development.</p>
+          </article>
+          <article class="value-card">
+            <span class="v-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+            <h3>Strategic Opportunities</h3>
+            <p>Evaluating market position, strategic fit, and opportunities to build stronger businesses over time.</p>
+          </article>
+          <article class="value-card">
+            <span class="v-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <h3>Portfolio Perspective</h3>
+            <p>Considering concentration, resilience, and how individual decisions contribute to broader objectives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM INVESTMENT PROCESS -->
+    <section class="section section-dark">
+      <div class="container grid-2 on-dark">
+        <div>
+          <p class="eyebrow" data-reveal>Our Evaluation Framework</p>
+          <h2 data-reveal>From First Look to <em class="accent-italic">Informed Decision.</em></h2>
+          <p class="lede" data-reveal style="margin-top:18px">A structured process helps bring the important questions into focus before capital and commitment are deployed.</p>
+        </div>
+        <ol class="numbered-list" data-reveal-group>
+          <li><div><h3>Understand the Thesis</h3><p>Define the objective, investment rationale, and role the opportunity is intended to play.</p></div></li>
+          <li><div><h3>Evaluate Fundamentals</h3><p>Review the business model, market context, financial drivers, and key risks that may affect outcomes.</p></div></li>
+          <li><div><h3>Consider Structure &amp; Fit</h3><p>Examine terms, timing, alignment, and how the opportunity fits the wider strategic picture.</p></div></li>
+          <li><div><h3>Monitor the Long View</h3><p>Keep attention on changing conditions, evolving assumptions, and the objectives that informed the decision.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PREMIUM SECTION: PRINCIPLES -->
+    <div class="investment-premium">
+      <style>
+        .investment-premium{--ip-ink:#10201d;--ip-muted:#66716b;--ip-line:rgba(16,32,29,.15);--ip-paper:#f7f6f0}
+        .investment-premium *{box-sizing:border-box}
+        .ip-section{padding:clamp(72px,8vw,116px) 0;position:relative;overflow:hidden}
+        .ip-kicker{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.16em;font:600 11px/1.4 Inter,sans-serif;color:#78836e;margin:0 0 20px}
+        .ip-kicker:before{content:"";width:27px;height:1px;background:#9aa97b;display:inline-block}
+        .ip-title{font:400 clamp(36px,4.8vw,64px)/1.06 Fraunces,Georgia,serif;letter-spacing:-.04em;margin:0;color:var(--ip-ink)}
+        .ip-title em{font-weight:400;color:#7c8965}
+        .ip-copy{font:400 14px/1.85 Inter,sans-serif;color:var(--ip-muted);margin:18px 0 0;max-width:560px}
+        .ip-principles{background:var(--ip-paper)}
+        .ip-head{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:end;margin-bottom:48px}
+        .ip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ip-line)}
+        .ip-card{padding:25px 24px 10px 0}
+        .ip-card+.ip-card{padding-left:24px;border-left:1px solid var(--ip-line)}
+        .ip-num{font:500 11px/1.4 Inter,sans-serif;letter-spacing:.14em;color:#87946f}
+        .ip-card h3{font:400 26px/1.2 Fraunces,Georgia,serif;color:var(--ip-ink);margin:35px 0 10px}
+        .ip-card p{font:400 13px/1.8 Inter,sans-serif;color:var(--ip-muted);margin:0}
+        .ip-note{background:#e8eddd}
+        .ip-note-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,7vw,100px);align-items:start}
+        .ip-note-panel{border:1px solid rgba(16,32,29,.16);padding:clamp(24px,4vw,42px);background:rgba(255,255,255,.32)}
+        .ip-note-panel h3{font:400 29px/1.2 Fraunces,Georgia,serif;margin:0 0 12px;color:var(--ip-ink)}
+        .ip-note-panel p{font:400 13px/1.85 Inter,sans-serif;margin:0;color:#5e6b62}
+        .ip-note-panel p+p{margin-top:14px}
+        @media(max-width:800px){.ip-head,.ip-note-layout{grid-template-columns:1fr;gap:20px}.ip-grid{grid-template-columns:1fr}.ip-card,.ip-card+.ip-card{padding:24px 0;border-left:0;border-bottom:1px solid var(--ip-line)}.ip-card h3{margin-top:20px}}
+      </style>
+      <section class="ip-section ip-principles" aria-labelledby="ip-principles-title">
+        <div class="container">
+          <div class="ip-head">
+            <div><p class="ip-kicker">Principles that guide us</p><h2 class="ip-title" id="ip-principles-title">Disciplined by design. <em>Flexible in perspective.</em></h2></div>
+            <p class="ip-copy">No two opportunities are identical. Our principles provide a consistent foundation while leaving room to account for the specifics of each situation.</p>
+          </div>
+          <div class="ip-grid">
+            <article class="ip-card"><span class="ip-num">01 / FUNDAMENTALS</span><h3>Look beneath the surface</h3><p>Consider the underlying drivers, assumptions, and conditions that shape the opportunity.</p></article>
+            <article class="ip-card"><span class="ip-num">02 / RISK AWARENESS</span><h3>Understand the downside</h3><p>Identify material risks and uncertainties alongside potential value and strategic benefits.</p></article>
+            <article class="ip-card"><span class="ip-num">03 / TIME HORIZON</span><h3>Think beyond the close</h3><p>Keep the longer-term objective in view, rather than letting short-term momentum dictate the decision.</p></article>
+          </div>
+        </div>
+      </section>
+      <div class="container" style="margin-top:52px;padding-top:32px;border-top:1px solid var(--ip-line)">
+        <div class="ip-note-layout">
+          <div>
+            <p class="ip-kicker">A considered partnership</p>
+            <h3 class="ip-title" style="font-size:clamp(28px,3vw,42px)">Clarity for the decisions <em>that matter.</em></h3>
+          </div>
+          <div class="ip-note-panel">
+            <h3>Built around your objectives</h3>
+            <p>We work to understand the context behind each decision and help frame the questions that deserve attention. The result is a more structured conversation around goals, trade-offs, and next steps.</p>
+            <p>Every investment involves risk, and outcomes are not guaranteed. Any specific opportunity should be evaluated against its own documentation, suitability, and circumstances.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVESTMENT CTA -->
+    <section class="section cta-section cta-evergreen" aria-label="Call to action">
+      <div class="cta-deco" aria-hidden="true"><span class="ring r1"></span><span class="ring r2"></span></div>
+      <div class="container">
+        <p class="eyebrow on-dark" data-reveal>Start a Conversation</p>
+        <h2 data-reveal>Every opportunity begins with <em class="accent-italic">a conversation.</em></h2>
+        <p class="lede" data-reveal>Tell us what you are working toward and let's explore the questions, options, and next steps together.</p>
+        <a class="btn btn-lime" href="contact.html" data-reveal data-magnetic>Discuss an Opportunity <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60" loading="lazy"></span></a>
+          <p>An investment banking partner for ambitious businesses and investors — strategic capital, exceptional opportunities, enduring value.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="investment.html">Investments</a></li>
+            <li><a href="insight.html">Insights</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul><li><a href="404.html">Mergers &amp; Acquisitions</a></li><li><a href="404.html">Capital Advisory</a></li><li><a href="404.html">Strategic Investments</a></li><li><a href="404.html">Wealth Management</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Portals</h4>
+          <ul><li><a href="404.html">Investor Portal</a></li><li><a href="404.html">Client Dashboard</a></li><li><a href="404.html">Admin Access</a></li><li><a href="404.html">Partner Dashboard</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Stackly Investment Banking. All rights reserved.</p>
+        <nav class="legal-links" aria-label="Legal"><a href="404.html">Privacy</a><a href="404.html">Terms</a></nav>
+        <a class="back-top" href="404.html" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

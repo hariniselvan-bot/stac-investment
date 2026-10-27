@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Stackly Investor Portal</title>
+  <meta name="description" content="Register for the Stackly Investor Portal.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;1,9..144,400;1,9..144,480&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </svg>
+
+  <main class="auth-page">
+    <div class="auth-visual" aria-hidden="true">
+      <img src="img/insights/insight-1.webp" alt="" width="880" height="660">
+      <div class="visual-caption">
+        <span class="serif">Join a partnership<br>built to endure.</span>
+        <p>Access onboarding, portfolio reporting, and your advisory team in one place.</p>
+      </div>
+    </div>
+
+    <div class="auth-panel">
+      <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span></a>
+      <div class="auth-box">
+        <h1>Create Your Account</h1>
+        <p class="sub">Register for portal access. Demo build — accounts are not stored on a server.</p>
+
+        <form id="registerForm" novalidate data-success="Account created. Redirecting to sign in…">
+          <div class="form-grid">
+            <div class="form-field full">
+              <label for="rName">Full Name</label>
+              <input type="text" id="rName" name="name" required autocomplete="name" placeholder="Alexandra Reyes">
+              <p class="field-error" role="alert"></p>
+            </div>
+            <div class="form-field full">
+              <label for="rEmail">Email</label>
+              <input type="email" id="rEmail" name="email" data-validate="email" required autocomplete="email" placeholder="you@company.com">
+              <p class="field-error" role="alert"></p>
+            </div>
+            <div class="form-field full">
+              <label for="rPassword">Password</label>
+              <div class="password-wrap">
+                <input type="password" id="rPassword" name="password" data-validate="password" data-strength required autocomplete="new-password" placeholder="••••••••">
+                <button type="button" class="password-toggle" aria-label="Show password"><svg aria-hidden="true"><use href="#i-eye"/></svg></button>
+              </div>
+              <div class="strength-meter" data-level="0" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+              <p class="strength-label">Use 12+ characters with letters, numbers and symbols.</p>
+              <p class="field-error" role="alert"></p>
+            </div>
+            <div class="form-field full">
+              <label for="rConfirm">Confirm Password</label>
+              <div class="password-wrap">
+                <input type="password" id="rConfirm" name="confirm" data-validate="confirm" required autocomplete="new-password" placeholder="••••••••">
+                <button type="button" class="password-toggle" aria-label="Show password"><svg aria-hidden="true"><use href="#i-eye"/></svg></button>
+              </div>
+              <p class="field-error" role="alert"></p>
+            </div>
+            <div class="form-field full">
+              <label class="checkbox-row" style="color:rgba(244,242,236,0.6)">
+                <input type="checkbox" name="terms" required>
+                <span>I accept the <a href="contact.html" style="color:var(--lime)">Terms of Service</a> and <a href="contact.html" style="color:var(--lime)">Privacy Policy</a>.</span>
+              </label>
+              <p class="field-error" role="alert"></p>
+            </div>
+          </div>
+          <button class="btn btn-lime" type="submit" style="width:100%;justify-content:center;margin-top:22px">Create Account <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></button>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+
+        <p class="auth-alt">Already registered? <a href="login.html">Sign in</a> · <a href="index.html">Back to site</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* ============================================================
+   STACKLY — animations.css
+   Keyframes, reveal states, decorative motion
+   ============================================================ */
+
+@keyframes scrollHint {
+  0% { top: -50%; }
+  60%, 100% { top: 110%; }
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.7; }
+  70% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-60px); }
+}
+
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+
+/* Word / line reveal helpers (JS sets initial state) */
+.w-line { display: block; overflow: hidden; }
+.w-line > span { display: inline-block; transform: translateY(110%); }
+.no-anim .w-line > span { transform: none; }
+
+/* Scroll reveal baseline (GSAP enhances; AOS fallback) */
+[data-reveal] { opacity: 0; transform: translateY(34px); }
+.no-anim [data-reveal], .no-js [data-reveal] { opacity: 1; transform: none; }
+
+/* Image mask reveal */
+.mask-reveal { clip-path: inset(0 0 100% 0); }
+.no-anim .mask-reveal, .no-js .mask-reveal { clip-path: none; }
+
+/* CTA decorative rings */
+.cta-deco .ring.r1 { width: 620px; height: 620px; top: -240px; right: -160px; animation: spinSlow 90s linear infinite; }
+.cta-deco .ring.r2 { width: 420px; height: 420px; bottom: -190px; left: -120px; animation: spinSlow 70s linear infinite reverse; }
+.cta-deco .ring.r3 { width: 240px; height: 240px; top: 12%; left: 16%; animation: floatSlow 9s ease-in-out infinite; }
+
+/* Wave line animation on lime stat card */
+.wave-lines path {
+  stroke-dasharray: 6 7;
+  animation: drift 14s linear infinite;
+}
+
+/* Hero contour drift */
+.hero-deco path { stroke-dasharray: 4 8; animation: drift 26s linear infinite; }
+
+/* Marquee for trusted strip on small screens */
+@media (prefers-reduced-motion: reduce) {
+  .wave-lines path, .hero-deco path, .cta-deco .ring, .hero-scroll .track::after, .play-badge::before { animation: none !important; }
+}

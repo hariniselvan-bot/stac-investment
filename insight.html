@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights &amp; Blog — Stackly Investment Banking</title>
+  <meta name="description" content="Ideas, perspectives, and analysis on capital markets, strategic growth, and building resilient businesses.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;0,9..144,560;1,9..144,400;1,9..144,480&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Premium additions for the About page */
+    .about-premium{--ap-ink:#10201d;--ap-muted:#66716b;--ap-line:rgba(16,32,29,.15);--ap-paper:#f7f6f0;--ap-lime:#dfff9b}
+    .about-premium *{box-sizing:border-box}
+    .ap-section{padding:clamp(74px,8.5vw,120px) 0;position:relative;overflow:hidden}
+    .ap-kicker{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.16em;font:600 11px/1.4 Inter,sans-serif;color:#78836e;margin:0 0 20px}
+    .ap-kicker:before{content:"";width:27px;height:1px;background:#9aa97b;display:inline-block}
+    .ap-title{font:400 clamp(36px,4.8vw,66px)/1.06 Fraunces,Georgia,serif;letter-spacing:-.04em;margin:0;color:var(--ap-ink)}
+    .ap-title em{font-weight:400;color:#7c8965}
+    .ap-copy{font:400 14px/1.85 Inter,sans-serif;color:var(--ap-muted);margin:18px 0 0;max-width:560px}
+    .ap-outlook{background:var(--ap-paper)}
+    .ap-outlook-head{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-bottom:52px}
+    .ap-outlook-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .ap-outlook-card{background:#fff;border:1px solid rgba(16,32,29,.08);padding:28px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s ease,box-shadow .25s ease}
+    .ap-outlook-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(16,32,29,.07)}
+    .ap-card-mark{width:42px;height:42px;border:1px solid rgba(16,32,29,.16);border-radius:50%;display:grid;place-items:center;color:#788b5e;font:400 18px Fraunces,Georgia,serif}
+    .ap-outlook-card h3{font:400 26px/1.15 Fraunces,Georgia,serif;margin:35px 0 10px;color:var(--ap-ink)}
+    .ap-outlook-card p{font:400 13px/1.8 Inter,sans-serif;color:var(--ap-muted);margin:0}
+    .ap-commitment{background:#e8eddd}
+    .ap-commitment-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,8vw,110px);align-items:start}
+    .ap-commitment-aside{position:sticky;top:100px}
+    .ap-commitment-aside .ap-title{font-size:clamp(36px,4.1vw,58px)}
+    .ap-commitment-list{border-top:1px solid var(--ap-line)}
+    .ap-commitment-item{display:grid;grid-template-columns:58px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--ap-line)}
+    .ap-commitment-item>span{font:500 11px/1.5 Inter,sans-serif;color:#7e8b69;letter-spacing:.12em;padding-top:5px}
+    .ap-commitment-item h3{font:400 25px/1.2 Fraunces,Georgia,serif;margin:0 0 9px;color:var(--ap-ink)}
+    .ap-commitment-item p{font:400 13px/1.8 Inter,sans-serif;margin:0;color:#5e6b62;max-width:540px}
+    .ap-journey{background:#14231f;color:#f4f2ec}
+    .ap-journey:after{content:"";position:absolute;width:470px;height:470px;right:-220px;top:-220px;border:1px solid rgba(223,255,155,.15);border-radius:50%;box-shadow:0 0 0 50px rgba(223,255,155,.025),0 0 0 100px rgba(223,255,155,.02);pointer-events:none}
+    .ap-journey .ap-kicker{color:#c1cbbb}
+    .ap-journey .ap-title{color:#f4f2ec;max-width:750px}
+    .ap-journey .ap-title em{color:var(--ap-lime)}
+    .ap-journey-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:50px}
+    .ap-journey-head .ap-copy{color:#c0cbc2;max-width:360px}
+    .ap-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(244,242,236,.22);position:relative;z-index:1}
+    .ap-milestone{padding:24px 20px 0 0;min-height:185px}
+    .ap-milestone+.ap-milestone{padding-left:20px;border-left:1px solid rgba(244,242,236,.18)}
+    .ap-milestone span{font:500 11px/1.4 Inter,sans-serif;letter-spacing:.12em;color:#c5d39e}
+    .ap-milestone h3{font:400 23px/1.2 Fraunces,Georgia,serif;margin:38px 0 10px;color:#f4f2ec}
+    .ap-milestone p{font:400 12px/1.8 Inter,sans-serif;color:#c0cbc2;margin:0}
+    @media(max-width:800px){
+      .ap-outlook-head{grid-template-columns:1fr;gap:18px}
+      .ap-outlook-grid{grid-template-columns:1fr}
+      .ap-outlook-card{min-height:210px}
+      .ap-commitment-layout{grid-template-columns:1fr;gap:35px}
+      .ap-commitment-aside{position:static}
+      .ap-journey-head{display:block}.ap-journey-head .ap-copy{max-width:560px}
+      .ap-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .ap-milestone{padding:22px 16px 22px 0;min-height:160px;border-bottom:1px solid rgba(244,242,236,.18)}
+      .ap-milestone+.ap-milestone{padding-left:16px}
+      .ap-milestone:nth-child(3){padding-left:0;border-left:0}
+    }
+    @media(max-width:480px){.ap-timeline{grid-template-columns:1fr}.ap-milestone,.ap-milestone+.ap-milestone{padding:20px 0;border-left:0;min-height:auto}.ap-milestone h3{margin-top:22px}}
+    @media(prefers-reduced-motion:reduce){.ap-outlook-card{transition:none}}
+  </style>
+
+
+  <style>
+    @media(max-width:800px){
+      .blog-feature{grid-template-columns:1fr!important}
+      .blog-feature>div:first-child{min-height:240px!important}
+      .team-grid[style*="repeat(4"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+      .team-grid[style*="repeat(3"]{grid-template-columns:1fr!important}
+    }
+    @media(max-width:480px){
+      .team-grid[style*="repeat(4"]{grid-template-columns:1fr!important}
+    }
+  </style>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V4m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20.5c1.4-3.6 4.2-5.5 7.5-5.5s6.1 1.9 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m5.5 10V4M15 20v-8m5 8V7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M8 12l-4.5-3L8 5.5 12 8l4-2.5L20.5 9 16 12m-8 0l3.5 3.5a2 2 0 002.8 0L16 12m-8 0l-2 2m10-2l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.6-8 9-4.8-1.4-8-4.5-8-9V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Stackly — home">
+        <span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="investment.html">Investments</a>
+        <a href="insight.html">Insights</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-lime" href="login.html">Investor Portal <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span></a>
+      <button class="mobile-menu-close" type="button" aria-label="Close menu"><span></span><span></span></button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home <span class="idx">01</span></a>
+      <a href="about.html">About <span class="idx">02</span></a>
+      <a href="service.html">Services <span class="idx">03</span></a>
+      <a href="investment.html">Investments <span class="idx">04</span></a>
+      <a href="insight.html">Insights <span class="idx">05</span></a>
+      <a href="blog.html">Blog <span class="idx">06</span></a>
+      <a href="contact.html">Contact <span class="idx">07</span></a>
+    </nav>
+    <a class="btn btn-lime mobile-cta" href="login.html">Investor Portal <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    <p class="mobile-meta">Strategic capital · Exceptional opportunities</p>
+  </div>
+
+  <main id="main">
+    <!-- 01 / BLOG HERO -->
+    <section class="page-hero page-hero--matched">
+      <div class="page-hero-media" aria-hidden="true"><img src="img/insights/insight-1.webp" alt="" width="960" height="1200"></div>
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Insights</span></nav>
+        <p class="eyebrow on-dark">Stackly Perspectives</p>
+        <h1>Ideas for what comes next. <em class="accent-italic">Perspective that lasts.</em></h1>
+        <p class="lede on-dark">Thoughtful perspectives on capital, strategy, and the decisions shaping tomorrow's businesses.</p>
+      </div>
+    </section>
+
+    <!-- 02 / FEATURED INSIGHT -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>Editor's Pick</p>
+          <h2 data-reveal>Featured <em class="accent-champagne">Perspective.</em></h2>
+        </div>
+        <article class="blog-feature" data-reveal style="display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,5vw,64px);align-items:center">
+          <div style="overflow:hidden;min-height:300px;background:#e8eddd">
+            <img src="img/insights/insight-1.webp" alt="Financial district skyline at dawn" loading="lazy" width="880" height="660" style="display:block;width:100%;height:100%;min-height:300px;object-fit:cover">
+          </div>
+          <div>
+            <p class="eyebrow">Capital Markets <span style="padding:0 8px">/</span> 6 min read</p>
+            <h3 style="font:400 clamp(30px,3.5vw,46px)/1.12 Fraunces,Georgia,serif;margin:16px 0">Navigating the Next Capital Cycle</h3>
+            <p class="lede">How disciplined allocation and patient structuring can help businesses respond when market conditions shift.</p>
+            <a class="btn" href="contact.html" style="margin-top:18px">Discuss This Topic <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+            <p style="font:400 11px/1.7 Inter,sans-serif;color:#788078;margin-top:14px">Sample editorial content for layout purposes.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 / LATEST ARTICLES -->
+    <section class="section" id="latest-insights" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>Latest Insights</p>
+          <h2 data-reveal>Ideas worth <em class="accent-champagne">a closer look.</em></h2>
+          <p class="lede" data-reveal>Explore perspectives on the market forces, strategic choices, and financial questions that matter to growing businesses.</p>
+        </div>
+        <div class="team-grid" data-reveal-group style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <article class="value-card" style="padding:0;overflow:hidden">
+            <img src="img/insights/insight-2.webp" alt="Financial documents being reviewed" loading="lazy" width="880" height="660" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover">
+            <div style="padding:24px">
+              <p class="eyebrow">Strategy · 4 min read</p><h3>Strategic Growth in Changing Markets</h3>
+              <p>Frameworks for evaluating expansion when the cost of capital and competitive dynamics are in motion.</p>
+              <a class="link-arrow" href="contact.html">Explore the Topic <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+              <p style="font:400 10px/1.6 Inter,sans-serif;color:#788078;margin-top:12px">Sample editorial content</p>
+            </div>
+          </article>
+          <article class="value-card" style="padding:0;overflow:hidden">
+            <img src="img/insights/insight-3.webp" alt="Contemporary architectural forms" loading="lazy" width="880" height="660" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover">
+            <div style="padding:24px">
+              <p class="eyebrow">Resilience · 5 min read</p><h3>Building Resilient Businesses</h3>
+              <p>Why balance-sheet discipline and thoughtful planning can become strategic advantages.</p>
+              <a class="link-arrow" href="contact.html">Explore the Topic <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+              <p style="font:400 10px/1.6 Inter,sans-serif;color:#788078;margin-top:12px">Sample editorial content</p>
+            </div>
+          </article>
+          <article class="value-card" style="padding:0;overflow:hidden">
+            <img src="img/services/capital.webp" alt="Business leaders discussing strategy" loading="lazy" width="880" height="660" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover">
+            <div style="padding:24px">
+              <p class="eyebrow">Capital Advisory · 7 min read</p><h3>Choosing the Right Capital Partner</h3>
+              <p>Questions to consider when aligning funding choices with the next stage of a company's journey.</p>
+              <a class="link-arrow" href="contact.html">Explore the Topic <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+              <p style="font:400 10px/1.6 Inter,sans-serif;color:#788078;margin-top:12px">Sample editorial content</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / TOPIC AREAS -->
+    <section class="section section-dark">
+      <div class="container on-dark">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>Explore by Topic</p>
+          <h2 data-reveal>Different questions. <em class="accent-italic">Broader perspective.</em></h2>
+          <p class="lede" data-reveal>Browse the themes that inform our thinking across investment banking and strategic advisory.</p>
+        </div>
+        <div class="team-grid" data-reveal-group style="grid-template-columns:repeat(4,minmax(0,1fr))">
+          <article class="value-card"><span class="v-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><h3>Capital Markets</h3><p>Market context, funding conditions, and capital strategy.</p></article>
+          <article class="value-card"><span class="v-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span><h3>M&amp;A Strategy</h3><p>Growth through acquisitions, partnerships, and transition.</p></article>
+          <article class="value-card"><span class="v-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><h3>Business Resilience</h3><p>Building durability through changing economic cycles.</p></article>
+          <article class="value-card"><span class="v-icon"><svg aria-hidden="true"><use href="#i-handshake"/></svg></span><h3>Leadership</h3><p>Decision-making, governance, and long-term alignment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / EDITORIAL APPROACH -->
+    <section class="section" style="background:#e8eddd">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow" data-reveal>Our Editorial Approach</p>
+          <h2 data-reveal>Substance over noise. <em class="accent-champagne">Context over headlines.</em></h2>
+        </div>
+        <div class="prose" data-reveal>
+          <p>Financial decisions rarely happen in isolation. Our editorial approach is designed to connect market developments with the practical questions leaders and investors may need to consider.</p>
+          <p>We aim to share clear, measured perspectives that encourage thoughtful discussion rather than short-term reactions. Articles on this page are illustrative placeholders until approved publications are added.</p>
+          <a class="btn" href="contact.html" style="margin-top:12px">Talk to Our Team <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / NEWSLETTER CTA -->
+    <section class="section cta-section cta-evergreen" aria-label="Call to action">
+      <div class="cta-deco" aria-hidden="true"><span class="ring r1"></span><span class="ring r2"></span></div>
+      <div class="container">
+        <p class="eyebrow on-dark" data-reveal>Continue the Conversation</p>
+        <h2 data-reveal>Good questions lead to <em class="accent-italic">better decisions.</em></h2>
+        <p class="lede" data-reveal>Have a topic in mind or a strategic question to explore? We'd welcome the conversation.</p>
+        <a class="btn btn-lime" href="contact.html" data-reveal data-magnetic>Contact Stackly <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+ <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60" loading="lazy"></span></a>
+          <p>An investment banking partner for ambitious businesses and investors — strategic capital, exceptional opportunities, enduring value.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="investment.html">Investments</a></li>
+            <li><a href="insight.html">Insights</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul><li><a href="404.html">Mergers &amp; Acquisitions</a></li><li><a href="404.html">Capital Advisory</a></li><li><a href="404.html">Strategic Investments</a></li><li><a href="404.html">Wealth Management</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Portals</h4>
+          <ul><li><a href="404.html">Investor Portal</a></li><li><a href="404.html">Client Dashboard</a></li><li><a href="404.html">Admin Access</a></li><li><a href="404.html">Partner Dashboard</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Stackly Investment Banking. All rights reserved.</p>
+        <nav class="legal-links" aria-label="Legal"><a href="404.html">Privacy</a><a href="404.html">Terms</a></nav>
+        <a class="back-top" href="404.html" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

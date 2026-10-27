@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Sign In | Stackly</title>
+  <meta name="description" content="Sign in to the Stackly portal.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;1,9..144,400;1,9..144,480&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    html,body{min-height:100%;margin:0}
+    body{overflow:hidden}
+    .auth-page{height:100vh;height:100svh;min-height:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(440px,.82fr)}
+    .auth-visual{min-height:0;height:100%;position:relative;overflow:hidden}
+    .auth-visual>img{width:100%;height:100%;object-fit:cover;display:block}
+    .auth-panel{min-height:0;height:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(22px,3vw,48px)}
+    .auth-panel-inner{width:100%;max-width:460px}
+    .auth-panel .brand{display:inline-flex;margin-bottom:clamp(24px,4vh,42px)}
+    .auth-box h1{margin-top:0}
+    .auth-box .sub{margin-bottom:24px}
+    .role-select{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .role-option{display:block;cursor:pointer}
+    .role-option input{position:absolute;opacity:0;pointer-events:none}
+    .role-option span{display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;border:1px solid rgba(16,32,29,.18);border-radius:8px;padding:10px 12px;font:500 13px/1.4 Inter,sans-serif;transition:background .2s,border-color .2s,color .2s}
+    .role-option svg{width:18px;height:18px}
+    .role-option input:checked+span{background:#e8eddd;border-color:#7e8b69;color:#10201d}
+    .role-option input:focus-visible+span{outline:2px solid #667d48;outline-offset:3px}
+    .auth-alt{line-height:1.7}
+    .field-error{min-height:0}
+    @media(max-width:960px){
+      body{overflow:auto}
+      .auth-page{height:auto;min-height:100svh;overflow:visible;grid-template-columns:1fr}
+      .auth-visual{display:none}
+      .auth-panel{height:auto;min-height:100svh;overflow:visible;padding:28px 20px}
+      .auth-panel .brand{margin-bottom:28px}
+    }
+    @media(min-width:961px) and (max-height:700px){
+      .auth-panel{padding:18px 28px}
+      .auth-panel .brand{margin-bottom:16px}
+      .auth-box .sub{margin-bottom:14px}
+      .form-grid{gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20.5c1.4-3.6 4.2-5.5 7.5-5.5s6.1 1.9 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.6-8 9-4.8-1.4-8-4.5-8-9V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <main class="auth-page">
+    <div class="auth-visual" aria-hidden="true">
+      <img src="img/about/about-main.webp" alt="" width="960" height="1200">
+      <div class="visual-caption">
+        <span class="serif">Clarity, discretion,<br>and long-term value.</span>
+        <p>Secure access for Stackly clients and administrators.</p>
+      </div>
+    </div>
+
+    <div class="auth-panel">
+      <div class="auth-panel-inner">
+        <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span></a>
+        <div class="auth-box">
+          <h1>Welcome back.</h1>
+          <p class="sub">Choose your portal and enter your email to continue.</p>
+
+          <form id="loginForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field full">
+                <label id="roleLabel">Choose portal</label>
+                <div class="role-select" role="radiogroup" aria-labelledby="roleLabel">
+                  <label class="role-option">
+                    <input type="radio" name="role" value="client" checked>
+                    <span><svg aria-hidden="true"><use href="#i-user"/></svg>Client Portal</span>
+                  </label>
+                  <label class="role-option">
+                    <input type="radio" name="role" value="admin">
+                    <span><svg aria-hidden="true"><use href="#i-shield"/></svg>Admin Portal</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-field full">
+                <label for="lEmail">Email address</label>
+                <input type="email" id="lEmail" name="email" required autocomplete="email" placeholder="you@company.com">
+                <p class="field-error" id="emailError" role="alert"></p>
+              </div>
+              <div class="form-field full">
+                <label for="lPassword">Password</label>
+                <div class="password-wrap">
+                  <input type="password" id="lPassword" name="password" required autocomplete="current-password" placeholder="Enter your password">
+                  <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password"><svg aria-hidden="true"><use href="#i-eye"/></svg></button>
+                </div>
+                <p class="field-error" id="passwordError" role="alert"></p>
+              </div>
+            </div>
+            <div class="auth-row">
+              <label class="checkbox-row"><input type="checkbox" name="remember"> <span>Remember me</span></label>
+              <a href="404.html">Forgot password?</a>
+            </div>
+            <button class="btn btn-lime" type="submit" style="width:100%;justify-content:center;margin-top:14px">Continue <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+
+          <p class="auth-alt"><a href="index.html">← Back to Stackly</a></p>
+          <p class="auth-alt" style="font-size:.72rem;margin-top:12px">Demo interface: sign-in routing is not server authentication. Connect a secure authentication service before production use.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (() => {
+      const form = document.getElementById('loginForm');
+      const email = document.getElementById('lEmail');
+      const password = document.getElementById('lPassword');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const status = document.getElementById('formStatus');
+      const toggle = document.getElementById('togglePassword');
+
+      toggle.addEventListener('click', () => {
+        const show = password.type === 'password';
+        password.type = show ? 'text' : 'password';
+        toggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        emailError.textContent = '';
+        passwordError.textContent = '';
+        status.textContent = '';
+
+        const cleanEmail = email.value.trim().toLowerCase();
+        let valid = true;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+          emailError.textContent = 'Enter a valid email address.';
+          valid = false;
+        }
+        if (!password.value) {
+          passwordError.textContent = 'Enter your password to continue.';
+          valid = false;
+        }
+        if (!valid) return;
+
+        const role = new FormData(form).get('role') || 'client';
+        const destination = role === 'admin' ? 'admin-dashboard.html' : 'dashboard.html';
+
+        // Demo convenience only; never use browser storage as authentication or authorization.
+        try {
+          localStorage.setItem('stacklyUserEmail', cleanEmail);
+          localStorage.setItem('stacklyUserRole', role);
+          sessionStorage.setItem('stacklyLoginEmail', cleanEmail);
+          sessionStorage.setItem('stacklyLoginRole', role === 'client' ? 'reservation' : role);
+        } catch (_) {}
+
+        status.textContent = 'Opening your portal…';
+        const url = new URL(destination, window.location.href);
+        url.searchParams.set('email', cleanEmail);
+        window.location.href = url.toString();
+      });
+    })();
+  </script>
+</body>
+</html>

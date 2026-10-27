@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Dashboard — Stackly</title>
+  <meta name="description" content="Stackly partner dashboard — referrals, leads, activity and messages.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="dash-body">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 01-1 1h-5v-6h-4v6H5a1 1 0 01-1-1v-9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-leads" viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m5.5 10V4M15 20v-8m5 8V7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8c-1.2 0-2.4-.3-3.4-.7L4 20.5l1.3-4.4A8 8 0 1121 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 4H6a2 2 0 00-2 2v12a2 2 0 002 2h8M16 8l4 4-4 4M20 12H9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="7.8" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0112 0c0 5 2 6.5 2 6.5H4S6 14 6 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 19a2 2 0 004 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <div class="dash-shell">
+    <aside class="dash-sidebar" aria-label="Partner navigation">
+      <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span></a>
+      <p class="dash-role-tag">Partner Portal</p>
+      <nav class="dash-nav">
+        <button class="active" data-panel="panel-overview" data-title="Partner Overview"><svg aria-hidden="true"><use href="#i-home"/></svg>Overview</button>
+        <button data-panel="panel-leads" data-title="Leads &amp; Referrals"><svg aria-hidden="true"><use href="#i-leads"/></svg>Leads &amp; Referrals</button>
+        <button data-panel="panel-activity" data-title="Activity Summary"><svg aria-hidden="true"><use href="#i-chart"/></svg>Activity</button>
+        <button data-panel="panel-messages" data-title="Messages"><svg aria-hidden="true"><use href="#i-message"/></svg>Messages</button>
+        <button data-panel="panel-settings" data-title="Account Settings"><svg aria-hidden="true"><use href="#i-settings"/></svg>Settings</button>
+      </nav>
+      <a class="logout" href="login.html"><svg aria-hidden="true"><use href="#i-logout"/></svg>Sign Out</a>
+    </aside>
+    <div class="sidebar-overlay" aria-hidden="true"></div>
+
+    <main class="dash-main">
+      <div class="dash-topbar">
+        <div style="display:flex;align-items:center;gap:14px">
+          <button class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+          <h1>Partner Overview</h1>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" data-goto-panel="panel-messages" aria-label="Messages"><svg aria-hidden="true"><use href="#i-message"/></svg><span class="dot"></span></button>
+          <span class="avatar" style="background:#2E3B2A;color:#DFFF9B" title="Meridian Capital (demo)">MC</span>
+        </div>
+      </div>
+
+      <div class="mock-banner"><svg aria-hidden="true"><use href="#i-info"/></svg>Demonstration dashboard — all leads, figures and messages are illustrative placeholder data.</div>
+
+      <!-- OVERVIEW -->
+      <section class="dash-panel active" id="panel-overview">
+        <div class="metric-grid">
+          <div class="metric-card dark"><span class="m-label">Active Referrals</span><span class="m-value num">12</span><span class="m-trend up">▲ 3 this month</span></div>
+          <div class="metric-card"><span class="m-label">In Diligence</span><span class="m-value num">4</span><span class="m-trend">2 advancing</span></div>
+          <div class="metric-card"><span class="m-label">Closed YTD</span><span class="m-value num">6</span><span class="m-trend up">▲ 2 vs. last year</span></div>
+          <div class="metric-card"><span class="m-label">Unread Messages</span><span class="m-value num">3</span><span class="m-trend">From your desk</span></div>
+        </div>
+        <div class="dash-grid-2">
+          <div class="card">
+            <h2>Referral Pipeline</h2>
+            <p class="card-sub">Monthly submissions — illustrative</p>
+            <div class="bar-chart" role="img" aria-label="Illustrative bar chart of monthly referral submissions">
+              <div class="bar"><i data-h="30"></i><span>May</span></div>
+              <div class="bar"><i data-h="46"></i><span>Jun</span></div>
+              <div class="bar"><i data-h="38"></i><span>Jul</span></div>
+              <div class="bar"><i data-h="56"></i><span>Aug</span></div>
+              <div class="bar"><i data-h="62"></i><span>Sep</span></div>
+              <div class="bar"><i data-h="70"></i><span>Oct</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Your Advisory Desk</h2>
+            <p class="card-sub">Relationship contacts</p>
+            <ul class="activity-list">
+              <li><span class="avatar" style="width:40px;height:40px;font-size:.72rem">JT</span><div><p>James Tran — Partner Liaison</p><time>Available Mon–Fri</time></div></li>
+              <li><span class="avatar" style="width:40px;height:40px;font-size:.72rem">EM</span><div><p>Elena Marsh — Diligence Lead</p><time>Responds within 1 business day</time></div></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEADS -->
+      <section class="dash-panel" id="panel-leads">
+        <div class="card">
+          <h2>Leads &amp; Referrals</h2>
+          <p class="card-sub">Illustrative pipeline — mock data</p>
+          <table class="dash-table">
+            <thead><tr><th>Company</th><th>Sector</th><th>Submitted</th><th>Stage</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Helioform Energy</td><td>Renewables</td><td>Oct 8, 2026</td><td>Diligence</td><td><span class="status-pill pending">In review</span></td></tr>
+              <tr><td>Cartwright Logistics</td><td>Industrials</td><td>Sep 26, 2026</td><td>Introduced</td><td><span class="status-pill ok">Active</span></td></tr>
+              <tr><td>Alba Biotech</td><td>Healthcare</td><td>Sep 14, 2026</td><td>Diligence</td><td><span class="status-pill pending">In review</span></td></tr>
+              <tr><td>Northpine Software</td><td>Technology</td><td>Aug 30, 2026</td><td>Closed</td><td><span class="status-pill ok">Closed</span></td></tr>
+              <tr><td>Vermont &amp; Grey</td><td>Consumer</td><td>Aug 12, 2026</td><td>Declined</td><td><span class="status-pill alert">Declined</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ACTIVITY -->
+      <section class="dash-panel" id="panel-activity">
+        <div class="card">
+          <h2>Activity Summary</h2>
+          <p class="card-sub">Recent partnership events — illustrative</p>
+          <ul class="activity-list">
+            <li><span class="a-ico"><svg><use href="#i-leads"/></svg></span><div><p>Helioform Energy moved to diligence stage.</p><time>2 days ago</time></div></li>
+            <li><span class="a-ico"><svg><use href="#i-message"/></svg></span><div><p>New message from James Tran regarding Q4 pipeline.</p><time>4 days ago</time></div></li>
+            <li><span class="a-ico"><svg><use href="#i-chart"/></svg></span><div><p>Northpine Software referral marked as closed.</p><time>2 weeks ago</time></div></li>
+            <li><span class="a-ico"><svg><use href="#i-bell"/></svg></span><div><p>Quarterly partner review scheduled for November.</p><time>3 weeks ago</time></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- MESSAGES -->
+      <section class="dash-panel" id="panel-messages">
+        <div class="card">
+          <h2>Messages</h2>
+          <p class="card-sub">Threads are illustrative — messaging is not connected in this demo</p>
+          <ul class="message-list">
+            <li><span class="avatar">JT</span><div><p class="m-name">James Tran</p><p class="m-preview">Looking forward to the Q4 pipeline review — please send over the updated…</p></div><time>2d</time></li>
+            <li><span class="avatar">EM</span><div><p class="m-name">Elena Marsh</p><p class="m-preview">The Helioform diligence pack is nearly complete. Two items remain on…</p></div><time>4d</time></li>
+            <li><span class="avatar">JT</span><div><p class="m-name">James Tran</p><p class="m-preview">Thanks for the Northpine introduction — strong outcome for everyone…</p></div><time>2w</time></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="dash-panel" id="panel-settings">
+        <div class="settings-grid">
+          <div class="card">
+            <h2>Partner Profile</h2>
+            <p class="card-sub">Demo profile — not connected to a backend</p>
+            <div class="form-grid">
+              <div class="form-field"><label for="pName">Organization</label><input id="pName" type="text" value="Meridian Capital (demo)"></div>
+              <div class="form-field"><label for="pEmail">Contact Email</label><input id="pEmail" type="email" value="partner@meridian.example"></div>
+            </div>
+            <button class="btn" style="margin-top:22px" onclick="this.textContent='Saved (demo)'">Save Changes</button>
+          </div>
+          <div class="card">
+            <h2>Notifications</h2>
+            <p class="card-sub">Choose what reaches your inbox</p>
+            <div class="toggle-row"><div><h3 style="font-size:.95rem;font-family:var(--sans)">Lead status changes</h3><p>When a referral moves between stages</p></div><label class="switch"><input type="checkbox" checked><i></i></label></div>
+            <div class="toggle-row"><div><h3 style="font-size:.95rem;font-family:var(--sans)">New messages</h3><p>Notify me when the advisory desk writes</p></div><label class="switch"><input type="checkbox" checked><i></i></label></div>
+            <div class="toggle-row"><div><h3 style="font-size:.95rem;font-family:var(--sans)">Quarterly review reminders</h3><p>Scheduling and preparation notes</p></div><label class="switch"><input type="checkbox"><i></i></label></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

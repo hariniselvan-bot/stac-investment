@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly — Investment Banking, Redefined</title>
+  <meta name="description" content="Stackly partners with ambitious businesses and investors to unlock opportunities, drive growth, and create lasting impact.">
+  <meta property="og:title" content="Stackly — Investment Banking, Redefined">
+  <meta property="og:description" content="Strategic capital. Exceptional opportunities. A brighter tomorrow.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/hero.webp">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,480;0,9..144,560;1,9..144,400;1,9..144,480&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Premium homepage additions */
+    .premium-additions{--pa-ink:#10201d;--pa-muted:#66716b;--pa-line:rgba(16,32,29,.14);--pa-paper:#f7f6f0;--pa-lime:#dfff9b}
+    .premium-additions *{box-sizing:border-box}
+    .pa-section{padding:clamp(76px,9vw,132px) 0;position:relative;overflow:hidden}
+    .pa-kicker{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.16em;font:600 11px/1.4 Inter,sans-serif;color:#68766c;margin:0 0 22px}
+    .pa-kicker:before{content:"";width:28px;height:1px;background:#a6b77b;display:inline-block}
+    .pa-heading{font:400 clamp(38px,5.2vw,72px)/1.04 Fraunces,Georgia,serif;letter-spacing:-.045em;margin:0;color:var(--pa-ink);max-width:800px}
+    .pa-heading em{font-weight:400;color:#7b8960}
+    .pa-intro{font:400 16px/1.8 Inter,sans-serif;color:var(--pa-muted);max-width:540px;margin:22px 0 0}
+    .pa-approach{background:var(--pa-paper)}
+    .pa-approach-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:58px}
+    .pa-approach-head .pa-intro{max-width:360px;margin-bottom:5px}
+    .pa-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--pa-line)}
+    .pa-step{padding:30px 28px 8px 0;position:relative}
+    .pa-step+.pa-step{padding-left:28px;border-left:1px solid var(--pa-line)}
+    .pa-step-no{font:500 12px/1 Inter,sans-serif;letter-spacing:.12em;color:#8a9872;display:block;margin-bottom:44px}
+    .pa-step h3{font:400 clamp(24px,2.4vw,32px)/1.15 Fraunces,Georgia,serif;color:var(--pa-ink);margin:0 0 14px}
+    .pa-step p{font:400 14px/1.8 Inter,sans-serif;color:var(--pa-muted);margin:0;max-width:330px}
+    .pa-industries{background:#14231f;color:#f4f2ec}
+    .pa-industries:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(223,255,155,.12);border-radius:50%;right:-240px;top:-180px;box-shadow:0 0 0 55px rgba(223,255,155,.025),0 0 0 110px rgba(223,255,155,.02);pointer-events:none}
+    .pa-industries .pa-kicker{color:#c3cdbd}
+    .pa-industries .pa-heading{color:#f4f2ec;max-width:740px}
+    .pa-industries .pa-heading em{color:var(--pa-lime)}
+    .pa-industry-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:58px;border-top:1px solid rgba(244,242,236,.18);border-left:1px solid rgba(244,242,236,.18);position:relative;z-index:1}
+    .pa-industry{min-height:190px;padding:25px 22px;border-right:1px solid rgba(244,242,236,.18);border-bottom:1px solid rgba(244,242,236,.18);display:flex;flex-direction:column;justify-content:space-between;transition:background .25s ease}
+    .pa-industry:hover{background:rgba(223,255,155,.07)}
+    .pa-industry span{font:500 11px/1 Inter,sans-serif;letter-spacing:.12em;color:#b7c5a6}
+    .pa-industry h3{font:400 clamp(20px,2vw,27px)/1.15 Fraunces,Georgia,serif;margin:34px 0 0;color:#f4f2ec}
+    .pa-industry p{font:400 12px/1.7 Inter,sans-serif;color:#bdc7bf;margin:10px 0 0}
+    .pa-difference{background:#e8eddd}
+    .pa-difference-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(42px,8vw,120px);align-items:start}
+    .pa-difference-aside{position:sticky;top:100px}
+    .pa-difference-aside .pa-heading{font-size:clamp(38px,4.5vw,62px)}
+    .pa-difference-aside .pa-intro{margin-bottom:30px}
+    .pa-text-link{display:inline-flex;align-items:center;gap:14px;color:var(--pa-ink);font:600 12px/1.5 Inter,sans-serif;text-decoration:none;border-bottom:1px solid rgba(16,32,29,.35);padding:0 0 9px}
+    .pa-text-link span{font-size:18px;transition:transform .2s}
+    .pa-text-link:hover span{transform:translate(3px,-3px)}
+    .pa-proof-list{border-top:1px solid rgba(16,32,29,.2)}
+    .pa-proof{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid rgba(16,32,29,.2)}
+    .pa-proof-index{font:500 11px/1.5 Inter,sans-serif;letter-spacing:.12em;color:#7c8a68;padding-top:5px}
+    .pa-proof h3{font:400 26px/1.2 Fraunces,Georgia,serif;color:var(--pa-ink);margin:0 0 9px}
+    .pa-proof p{font:400 14px/1.8 Inter,sans-serif;color:#5e6b62;margin:0;max-width:500px}
+    @media(max-width:800px){
+      .pa-approach-head{display:block}.pa-approach-head .pa-intro{max-width:520px}
+      .pa-steps{grid-template-columns:1fr}.pa-step,.pa-step+.pa-step{padding:25px 0;border-left:0;border-bottom:1px solid var(--pa-line)}
+      .pa-step-no{margin-bottom:22px}
+      .pa-industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .pa-difference-layout{grid-template-columns:1fr;gap:42px}.pa-difference-aside{position:static}
+    }
+    @media(max-width:480px){.pa-industry-grid{grid-template-columns:1fr 1fr}.pa-industry{min-height:160px;padding:18px 14px}.pa-industry h3{font-size:21px}}
+    @media(prefers-reduced-motion:reduce){.pa-industry,.pa-text-link span{transition:none}}
+  </style>
+
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <span class="brand-chip"><img src="img/stackly-logo.webp" alt="" width="206" height="60"></span>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- Icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v16m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V4m0 0l-6 6m6-6l6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20.5c1.4-3.6 4.2-5.5 7.5-5.5s6.1 1.9 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M8 12l-4.5-3L8 5.5 12 8l4-2.5L20.5 9 16 12m-8 0l3.5 3.5a2 2 0 002.8 0L16 12m-8 0l-2 2m10-2l2 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m5.5 10V4M15 20v-8m5 8V7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5l8-2v18m0 0h8V9l-8 2m-8 10h8M7 8h2m-2 4h2m-2 4h2m7-3h2m-2 4h2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.8v14.4L19 12 7 4.8z"/></symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Stackly — home">
+        <span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="investment.html">Investments</a>
+        <a href="insight.html">Insights</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-lime" href="login.html">Investor Portal <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60"></span></a>
+      <button class="mobile-menu-close" type="button" aria-label="Close menu"><span></span><span></span></button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="index.html">Home <span class="idx">01</span></a>
+      <a href="about.html">About <span class="idx">02</span></a>
+      <a href="service.html">Services <span class="idx">03</span></a>
+      <a href="investment.html">Investments <span class="idx">04</span></a>
+      <a href="insight.html">Insights <span class="idx">05</span></a>
+      <a href="blog.html">Blog <span class="idx">06</span></a>
+      <a href="contact.html">Contact <span class="idx">07</span></a>
+    </nav>
+    <a class="btn btn-lime mobile-cta" href="login.html">Investor Portal <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    <p class="mobile-meta">Strategic capital · Exceptional opportunities</p>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-media" aria-hidden="true">
+        <img src="img/hero.webp" srcset="img/hero-768.webp 768w, img/hero-1280.webp 1280w, img/hero.webp 1920w"
+             sizes="100vw" alt="" fetchpriority="high" width="1920" height="1152">
+      </div>
+      <svg class="hero-deco" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-40 480C240 380 420 560 720 470s520-220 800-160" stroke="#C6B78B" stroke-opacity="0.35" fill="none"/>
+        <path d="M-40 520C260 420 440 600 740 510s520-220 800-160" stroke="#C6B78B" stroke-opacity="0.2" fill="none"/>
+        <path d="M-40 560C280 460 460 640 760 550s520-220 800-160" stroke="#DFFF9B" stroke-opacity="0.12" fill="none"/>
+      </svg>
+      <div class="hero-inner">
+        <p class="eyebrow hero-eyebrow on-dark">Investment Banking, Redefined</p>
+        <h1>
+          <span class="line"><span>Investing in Vision.</span></span>
+          <span class="line"><span>Building <em class="accent-italic">Bold Futures.</em></span></span>
+        </h1>
+        <p class="hero-lede">We partner with ambitious businesses and investors to unlock opportunities, drive growth, and create lasting impact.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-lime" href="contact.html" data-magnetic>Partner With Us <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          <a class="link-arrow" href="#stats" style="color:var(--ivory)">Discover Stackly <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        Strategic capital. Exceptional opportunities. A brighter tomorrow.
+      </aside>
+      <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><span class="track"></span></div>
+      <p class="hero-count" aria-hidden="true">01 — 06</p>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats-section" id="stats" aria-label="Key figures">
+      <div class="container">
+        <div class="stats-grid" data-reveal-group>
+          <article class="stat-card light">
+            <div class="stat-top">
+              <p class="stat-value num" data-count="1.2" data-prefix="$" data-suffix="B+">$0B+</p>
+              <svg class="stat-icon" aria-hidden="true"><use href="#i-building"/></svg>
+            </div>
+            <div class="stat-figure" aria-hidden="true"><img src="img/services/ma.webp" alt="" loading="lazy"></div>
+            <div>
+              <p class="stat-label">Assets Under Advisory</p>
+              <p class="stat-note">Illustrative figure — pending verified data</p>
+            </div>
+          </article>
+          <article class="stat-card dark">
+            <div class="stat-top">
+              <p class="stat-value num" data-count="250" data-suffix="+">0+</p>
+              <svg class="stat-icon" aria-hidden="true"><use href="#i-globe"/></svg>
+            </div>
+            <svg class="wave-lines" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true" style="opacity:.35">
+              <circle cx="200" cy="230" r="150" fill="none" stroke="#DFFF9B" stroke-opacity="0.5"/>
+              <circle cx="200" cy="230" r="110" fill="none" stroke="#DFFF9B" stroke-opacity="0.35"/>
+              <circle cx="200" cy="230" r="70" fill="none" stroke="#DFFF9B" stroke-opacity="0.25"/>
+              <path d="M40 120 C 120 60, 280 180, 360 100" stroke="#C6B78B" fill="none" stroke-opacity="0.5"/>
+            </svg>
+            <div>
+              <p class="stat-label">Businesses Supported</p>
+              <p class="stat-note">Illustrative figure — pending verified data</p>
+            </div>
+          </article>
+          <article class="stat-card lime">
+            <div class="stat-top">
+              <p class="stat-value num" data-count="900" data-prefix="$" data-suffix="M+">$0M+</p>
+              <svg class="stat-icon" aria-hidden="true"><use href="#i-chart"/></svg>
+            </div>
+            <svg class="wave-lines" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 150 C 80 100, 140 190, 220 140 S 360 90, 400 120"/>
+              <path d="M0 170 C 90 120, 150 205, 230 155 S 370 110, 400 140"/>
+              <path d="M0 130 C 70 85, 130 170, 210 125 S 350 70, 400 100"/>
+              <path d="M0 190 C 100 140, 160 215, 240 170 S 380 130, 400 160"/>
+            </svg>
+            <div>
+              <p class="stat-label">Capital Raised</p>
+              <p class="stat-note">Illustrative figure — pending verified data</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUSTED ============ -->
+    <section class="trusted" aria-label="Trusted by">
+      <div class="container">
+        <p class="trusted-label" data-reveal>Trusted by Visionary Companies</p>
+        <div class="trusted-row" data-reveal-group>
+          <span class="t-logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/></svg>TechCore</span>
+          <span class="t-logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3l9 18H3z"/></svg>NexGen</span>
+          <span class="t-logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2l4 10h-8zM6 22l6-14 6 14z"/></svg>Aurora</span>
+          <span class="t-logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 5l9 14 9-14z"/></svg>Veltrix</span>
+          <span class="t-logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3l10 18H2z"/><rect x="9" y="14" width="6" height="7" fill="#F4F2EC"/></svg>Summit</span>
+          <span class="t-logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>Orion</span>
+        </div>
+        <p class="trusted-disclaimer">Placeholder brand identities shown for layout purposes only — not client endorsements.</p>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services" aria-label="Services">
+      <div class="container services-layout">
+        <div class="services-intro">
+          <p class="eyebrow" data-reveal>Our Services</p>
+          <h2 data-reveal>Strategic Solutions <em class="accent-champagne">for Every Ambition.</em></h2>
+          <p class="lede" data-reveal>From capital raising to M&amp;A, we provide end-to-end investment banking solutions tailored to your goals.</p>
+          <a class="btn" href="service.html" data-reveal data-magnetic>Explore Services <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+        <div class="services-scroll" data-reveal-group>
+          <a class="service-card" href="service.html#mergers-acquisitions">
+            <div class="service-media">
+              <img src="img/services/ma.webp" alt="Glass skyscraper facade at dusk" loading="lazy" width="880" height="660">
+              <span class="service-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+            </div>
+            <div class="service-body">
+              <h3>Mergers &amp; Acquisitions</h3>
+              <p>Creating value through strategic growth and disciplined deal execution.</p>
+              <span class="service-link">Learn more <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+          </a>
+          <a class="service-card" href="service.html#capital-advisory">
+            <div class="service-media">
+              <img src="img/services/capital.webp" alt="Executives in discussion at a boardroom table" loading="lazy" width="880" height="660">
+              <span class="service-icon"><svg aria-hidden="true"><use href="#i-handshake"/></svg></span>
+            </div>
+            <div class="service-body">
+              <h3>Capital Advisory</h3>
+              <p>Connecting vision with capital across private and public markets.</p>
+              <span class="service-link">Learn more <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+          </a>
+          <a class="service-card" href="service.html#strategic-investments">
+            <div class="service-media">
+              <img src="img/services/investments.webp" alt="Financial market charts on a screen in a dark room" loading="lazy" width="880" height="660">
+              <span class="service-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+            </div>
+            <div class="service-body">
+              <h3>Strategic Investments</h3>
+              <p>Fueling innovation and scale with conviction-led capital.</p>
+              <span class="service-link">Learn more <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+          </a>
+          <a class="service-card" href="service.html#wealth-management">
+            <div class="service-media">
+              <img src="img/services/wealth.webp" alt="Serene luxury office interior with plants" loading="lazy" width="880" height="660">
+              <span class="service-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+            </div>
+            <div class="service-body">
+              <h3>Wealth Management</h3>
+              <p>Preserving and growing wealth for generations.</p>
+              <span class="service-link">Learn more <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ PREMIUM SECTION 1: OUR APPROACH ============ -->
+    <div class="premium-additions">
+      <section class="pa-section pa-approach" aria-labelledby="pa-approach-title">
+        <div class="container">
+          <div class="pa-approach-head">
+            <div>
+              <p class="pa-kicker">A more considered approach</p>
+              <h2 class="pa-heading" id="pa-approach-title">Good decisions start with <em>clear thinking.</em></h2>
+            </div>
+            <p class="pa-intro">Complex financial decisions deserve a partner who sees the whole picture — your ambitions, your constraints, and the opportunities ahead.</p>
+          </div>
+          <div class="pa-steps">
+            <article class="pa-step">
+              <span class="pa-step-no">01 / UNDERSTAND</span>
+              <h3>Start with your ambition.</h3>
+              <p>We begin by listening closely, understanding what matters most, and defining what meaningful progress looks like for you.</p>
+            </article>
+            <article class="pa-step">
+              <span class="pa-step-no">02 / STRATEGIZE</span>
+              <h3>Find the right path.</h3>
+              <p>We bring structure to complexity, evaluating options and shaping a considered strategy around your goals.</p>
+            </article>
+            <article class="pa-step">
+              <span class="pa-step-no">03 / EXECUTE</span>
+              <h3>Move forward with purpose.</h3>
+              <p>From first conversation to final execution, we stay focused on thoughtful decisions and enduring value.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PREMIUM SECTION 2: INDUSTRIES ============ -->
+      <section class="pa-section pa-industries" aria-labelledby="pa-industries-title">
+        <div class="container">
+          <p class="pa-kicker">Perspective across markets</p>
+          <h2 class="pa-heading" id="pa-industries-title">Insight that moves with <em>your world.</em></h2>
+          <p class="pa-intro" style="color:#c0cbc2">Every sector has its own pace, pressures, and potential. We take the time to understand the forces shaping your market and the decisions in front of you.</p>
+          <div class="pa-industry-grid">
+            <article class="pa-industry"><span>01 / SCALE</span><div><h3>Technology</h3><p>Backing innovation and sustainable growth.</p></div></article>
+            <article class="pa-industry"><span>02 / TRANSFORM</span><div><h3>Healthcare</h3><p>Navigating change in essential markets.</p></div></article>
+            <article class="pa-industry"><span>03 / BUILD</span><div><h3>Industrials</h3><p>Supporting resilient, evolving businesses.</p></div></article>
+            <article class="pa-industry"><span>04 / EVOLVE</span><div><h3>Consumer</h3><p>Finding opportunity in shifting demand.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PREMIUM SECTION 3: WHY STACKLY ============ -->
+      <section class="pa-section pa-difference" aria-labelledby="pa-difference-title">
+        <div class="container pa-difference-layout">
+          <div class="pa-difference-aside">
+            <p class="pa-kicker">The Stackly difference</p>
+            <h2 class="pa-heading" id="pa-difference-title">Built around what <em>matters to you.</em></h2>
+            <p class="pa-intro">A premium advisory experience is about more than a transaction. It is about trust, perspective, and a partner invested in the bigger picture.</p>
+            <a class="pa-text-link" href="about.html">Get to know Stackly <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="pa-proof-list">
+            <article class="pa-proof"><span class="pa-proof-index">01</span><div><h3>Senior-level attention</h3><p>Thoughtful collaboration, direct communication, and advice shaped around your specific objectives.</p></div></article>
+            <article class="pa-proof"><span class="pa-proof-index">02</span><div><h3>Independent perspective</h3><p>A disciplined view of opportunities, trade-offs, and risks to help you make decisions with confidence.</p></div></article>
+            <article class="pa-proof"><span class="pa-proof-index">03</span><div><h3>Long-term alignment</h3><p>We look beyond the immediate milestone to the relationships and outcomes that stand the test of time.</p></div></article>
+            <article class="pa-proof"><span class="pa-proof-index">04</span><div><h3>Discretion by design</h3><p>Careful handling of sensitive conversations and a considered approach at every stage.</p></div></article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section section-dark about-section" id="about" aria-label="About Stackly">
+      <svg class="about-deco" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 640C300 520 500 720 840 620s560-260 860-200" stroke="#C6B78B" stroke-opacity="0.3" fill="none"/>
+        <path d="M-60 700C320 580 520 780 860 680s560-260 860-200" stroke="#C6B78B" stroke-opacity="0.15" fill="none"/>
+        <path d="M-60 580C280 460 480 660 820 560s560-260 860-200" stroke="#DFFF9B" stroke-opacity="0.08" fill="none"/>
+      </svg>
+      <div class="container about-grid">
+        <div class="about-media mask-reveal">
+          <img src="img/about/about-main.webp" alt="Modern glass office tower with warm interior lights at dusk" loading="lazy" width="960" height="1200">
+          <span class="play-badge" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <p class="play-caption">Watch Our Story — Coming Soon</p>
+        </div>
+        <div class="about-copy on-dark">
+          <p class="eyebrow" data-reveal>About Stackly</p>
+          <h2 data-reveal>Driven by Purpose. <em class="accent-italic">Backed by Expertise.</em></h2>
+          <p class="lede" data-reveal>Stackly is an investment banking firm committed to identifying exceptional opportunities and delivering measurable outcomes. We combine deep industry expertise with a forward-looking mindset to help our clients navigate complex markets and pursue their boldest ambitions.</p>
+          <ul class="values-list" data-reveal-group>
+            <li>
+              <span class="v-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+              <div><h3>Global Perspective</h3><p>Local expertise informed by a worldwide view of capital and markets.</p></div>
+            </li>
+            <li>
+              <span class="v-icon"><svg aria-hidden="true"><use href="#i-user"/></svg></span>
+              <div><h3>Client-Centric Approach</h3><p>Advice shaped around your goals — never around a template.</p></div>
+            </li>
+            <li>
+              <span class="v-icon"><svg aria-hidden="true"><use href="#i-handshake"/></svg></span>
+              <div><h3>Long-Term Partnerships</h3><p>We measure success in decades, not quarters.</p></div>
+            </li>
+          </ul>
+          <div class="mt-40" data-reveal>
+            <a class="btn btn-ghost" href="about.html" data-magnetic>Our Story <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSIGHTS ============ -->
+    <section class="section" id="insights" aria-label="Market insights">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>Market Insights</p>
+          <h2 data-reveal>Clarity for <em class="accent-champagne">What Comes Next.</em></h2>
+          <p class="lede" data-reveal>Research and perspectives from our advisory desk. Sample editorial content shown pending approved publications.</p>
+        </div>
+        <div class="insights-grid" data-reveal-group>
+          <a class="article-card featured" href="blog.html">
+            <div class="article-media"><img src="img/insights/insight-1.webp" alt="Aerial view of a financial district skyline at dawn" loading="lazy" width="880" height="660"></div>
+            <div class="article-body">
+              <div class="article-meta"><span class="cat">Capital Markets</span><span>6 min read</span></div>
+              <h3>Navigating the Next Capital Cycle</h3>
+              <p>How disciplined allocation and patient structuring separate resilient businesses from the rest when conditions shift.</p>
+              <span class="link-arrow">Read More <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+              <span class="sample-tag">Sample editorial content</span>
+            </div>
+          </a>
+          <a class="article-card" href="blog.html">
+            <div class="article-media"><img src="img/insights/insight-2.webp" alt="Hands reviewing financial documents under warm lamplight" loading="lazy" width="880" height="660"></div>
+            <div class="article-body">
+              <div class="article-meta"><span class="cat">Strategy</span><span>4 min read</span></div>
+              <h3>Strategic Growth in Changing Markets</h3>
+              <p>Frameworks for evaluating expansion when the cost of capital is in motion.</p>
+              <span class="link-arrow">Read More <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+              <span class="sample-tag">Sample editorial content</span>
+            </div>
+          </a>
+          <a class="article-card" href="blog.html">
+            <div class="article-media"><img src="img/insights/insight-3.webp" alt="Abstract curved architecture in deep green tones" loading="lazy" width="880" height="660"></div>
+            <div class="article-body">
+              <div class="article-meta"><span class="cat">Resilience</span><span>5 min read</span></div>
+              <h3>Building Resilient Businesses</h3>
+              <p>Balance-sheet discipline as a strategic advantage, not a constraint.</p>
+              <span class="link-arrow">Read More <svg class="arr" width="13" height="13" aria-hidden="true"><use href="#i-arrow-ur"/></svg></span>
+              <span class="sample-tag">Sample editorial content</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section cta-section" aria-label="Call to action">
+      <div class="cta-deco" aria-hidden="true">
+        <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+      </div>
+      <div class="container">
+        <p class="eyebrow" data-reveal style="color:rgba(16,26,24,.6)">Begin the Conversation</p>
+        <h2 data-reveal>Big Ambitions Deserve <em style="font-style:italic">Bold Financial Thinking.</em></h2>
+        <a class="btn" href="contact.html" data-reveal data-magnetic>Let's Talk <svg class="arr" width="15" height="15" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Stackly — home"><span class="brand-chip"><img src="img/stackly-logo.webp" alt="Stackly" width="206" height="60" loading="lazy"></span></a>
+          <p>An investment banking partner for ambitious businesses and investors — strategic capital, exceptional opportunities, enduring value.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="investment.html">Investments</a></li>
+            <li><a href="insight.html">Insights</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul><li><a href="404.html">Mergers &amp; Acquisitions</a></li><li><a href="404.html">Capital Advisory</a></li><li><a href="404.html">Strategic Investments</a></li><li><a href="404.html">Wealth Management</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Portals</h4>
+          <ul><li><a href="404.html">Investor Portal</a></li><li><a href="404.html">Client Dashboard</a></li><li><a href="404.html">Admin Access</a></li><li><a href="404.html">Partner Dashboard</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Stackly Investment Banking. All rights reserved.</p>
+        <nav class="legal-links" aria-label="Legal"><a href="404.html">Privacy</a><a href="404.html">Terms</a></nav>
+        <a class="back-top" href="404.html" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
